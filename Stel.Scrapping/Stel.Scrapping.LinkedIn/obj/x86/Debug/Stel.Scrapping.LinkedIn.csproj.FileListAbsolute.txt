@@ -1,0 +1,17 @@
+D:\WorkingDir\stelscrapping\Stel.Scrapping\Stel.Scrapping.LinkedIn\bin\x86\Debug\Stel.Scrapping.LinkedIn.exe.config
+D:\WorkingDir\stelscrapping\Stel.Scrapping\Stel.Scrapping.LinkedIn\bin\x86\Debug\Stel.Scrapping.LinkedIn.exe
+D:\WorkingDir\stelscrapping\Stel.Scrapping\Stel.Scrapping.LinkedIn\bin\x86\Debug\Stel.Scrapping.LinkedIn.pdb
+D:\WorkingDir\stelscrapping\Stel.Scrapping\Stel.Scrapping.LinkedIn\bin\x86\Debug\CefSharp.Core.dll
+D:\WorkingDir\stelscrapping\Stel.Scrapping\Stel.Scrapping.LinkedIn\bin\x86\Debug\CefSharp.dll
+D:\WorkingDir\stelscrapping\Stel.Scrapping\Stel.Scrapping.LinkedIn\bin\x86\Debug\CefSharp.WinForms.dll
+D:\WorkingDir\stelscrapping\Stel.Scrapping\Stel.Scrapping.LinkedIn\bin\x86\Debug\CefSharp.WinForms.xml
+D:\WorkingDir\stelscrapping\Stel.Scrapping\Stel.Scrapping.LinkedIn\bin\x86\Debug\CefSharp.xml
+D:\WorkingDir\stelscrapping\Stel.Scrapping\Stel.Scrapping.LinkedIn\bin\x86\Debug\CefSharp.Core.xml
+D:\WorkingDir\stelscrapping\Stel.Scrapping\Stel.Scrapping.LinkedIn\obj\x86\Debug\Stel.Scrapping.LinkedIn.csprojResolveAssemblyReference.cache
+D:\WorkingDir\stelscrapping\Stel.Scrapping\Stel.Scrapping.LinkedIn\obj\x86\Debug\Stel.Scrapping.LinkedIn.MainForm.resources
+D:\WorkingDir\stelscrapping\Stel.Scrapping\Stel.Scrapping.LinkedIn\obj\x86\Debug\Stel.Scrapping.LinkedIn.Properties.Resources.resources
+D:\WorkingDir\stelscrapping\Stel.Scrapping\Stel.Scrapping.LinkedIn\obj\x86\Debug\Stel.Scrapping.LinkedIn.csproj.GenerateResource.Cache
+D:\WorkingDir\stelscrapping\Stel.Scrapping\Stel.Scrapping.LinkedIn\obj\x86\Debug\Stel.Scrapping.LinkedIn.exe
+D:\WorkingDir\stelscrapping\Stel.Scrapping\Stel.Scrapping.LinkedIn\obj\x86\Debug\Stel.Scrapping.LinkedIn.pdb
+D:\WorkingDir\stelscrapping\Stel.Scrapping\Stel.Scrapping.LinkedIn\bin\x86\Debug\Newtonsoft.Json.dll
+D:\WorkingDir\stelscrapping\Stel.Scrapping\Stel.Scrapping.LinkedIn\bin\x86\Debug\Newtonsoft.Json.xml
