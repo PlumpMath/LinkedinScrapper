@@ -9,8 +9,8 @@
     <ProjectGuid>{4E531D60-7FB8-4B9E-9250-27F9F918C4DA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Stel.Scrapping.LinkedIn</RootNamespace>
-    <AssemblyName>Stel.Scrapping.LinkedIn</AssemblyName>
+    <RootNamespace>Dax.Scrapping.Appraisal</RootNamespace>
+    <AssemblyName>Dax.Scrapping.Appraisal</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -71,9 +71,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Contact.cs" />
+    <Compile Include="Core\AppraisalScrapper.cs" />
+    <Compile Include="Core\Order.cs" />
     <Compile Include="Core\Helper.cs" />
     <Compile Include="Core\EnumStatus.cs" />
+    <Compile Include="Core\ScrapperBase.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +95,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

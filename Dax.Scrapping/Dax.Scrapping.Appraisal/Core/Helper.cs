@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Stel.Scrapping.LinkedIn
+namespace Dax.Scrapping.Appraisal.Core
 {
     public static class Helper
     {

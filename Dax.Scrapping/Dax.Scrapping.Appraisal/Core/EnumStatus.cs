@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Stel.Scrapping.LinkedIn
+namespace Dax.Scrapping.Appraisal.Core
 {
     public enum  Status
     {
@@ -20,8 +20,8 @@ namespace Stel.Scrapping.LinkedIn
         [Description("Parsing Conections page")]
         Parsing,
 
-        [Description("Getting Contact Info")]
-        GettingContactInfo,
+        [Description("Getting Orders Info")]
+        GetOrders,
 
         [Description("Completed")]
         Completed

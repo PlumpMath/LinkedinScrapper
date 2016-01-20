@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stel.Scrapping.LinkedIn", "Stel.Scrapping.LinkedIn\Stel.Scrapping.LinkedIn.csproj", "{4E531D60-7FB8-4B9E-9250-27F9F918C4DA}"
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dax.Scrapping.Appraisal", "Dax.Scrapping.Appraisal\Dax.Scrapping.Appraisal.csproj", "{4E531D60-7FB8-4B9E-9250-27F9F918C4DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
