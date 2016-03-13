@@ -18,7 +18,7 @@ namespace Dax.Scrapping.Appraisal
             bool bPrestartPauseflag_ = true;
             bool bStartflag_ = false;
             CheckCommandLine(ref bAflag_, ref bPrestartPauseflag_, ref bStartflag_);
-            bStartflag_ = true;
+            //bStartflag_ = true;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm(bStartflag_));

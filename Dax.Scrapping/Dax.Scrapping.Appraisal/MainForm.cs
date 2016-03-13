@@ -80,16 +80,29 @@ namespace Dax.Scrapping.Appraisal
 
         private void Log(string msg)
         {
-            var rMsg = string.Format("{0}{1}", msg, Environment.NewLine);
-            if (this.InvokeRequired)
+            try
             {
-                this.Invoke(new MethodInvoker(() => txtLogs.AppendText(rMsg)));
+                var rMsg = string.Format("{0} : {1}{2}",DateTime.Now, msg, Environment.NewLine);
+                if (this.InvokeRequired)
+                {
+                    this.Invoke(new MethodInvoker(() => {
+                        File.AppendAllText("./log.txt", rMsg);
+                        txtLogs.AppendText(rMsg);
+                    }));
 
+                }
+                else
+                {
+                    txtLogs.AppendText(rMsg);
+                    File.AppendAllText("./log.txt", rMsg);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                txtLogs.AppendText(rMsg);
+
+                
             }
+    
 
         }
 

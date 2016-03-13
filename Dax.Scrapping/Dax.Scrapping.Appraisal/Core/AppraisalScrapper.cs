@@ -22,11 +22,14 @@ namespace Dax.Scrapping.Appraisal.Core
         public delegate void Completed();
         public event Completed OnCompleted = null;
 
+
         private Status _curStatus = Status.Paused;
         string _user;
         string _pass;
         string _loginUrl = "https://www.mytitlesourceconnection.com/Account/Login";
         string _newOrdersUrl = "https://www.mytitlesourceconnection.com/Vendor/AppraiserQueue/NewOrders";
+
+
 
         #endregion
 
@@ -35,7 +38,7 @@ namespace Dax.Scrapping.Appraisal.Core
         {
             _user = user;
             _pass = pass;
-          
+
             _brouserComponent = new ChromiumWebBrowser(_loginUrl);
             _brouserComponent.LoadingStateChanged += _brouserComponent_LoadingStateChanged;
             _curStatus = Status.Loading;
@@ -82,31 +85,35 @@ namespace Dax.Scrapping.Appraisal.Core
                 {
                     case Status.Loading:
                         _curStatus = Status.Loggin;
+                        Log("Loging user..");
                         LoginUser();
                         break;
 
                     case Status.Loggin:
                         _curStatus = Status.Searching;
+                        Log("Going to orders page....");
                         GoToOrdersPage();
                         break;
 
                     case Status.Searching:
                         _curStatus = Status.GetOrders;
+                        Log("Getting Orders....");
                         AcceptOrders();
                         break;
 
                     case Status.GetOrders:
-                       // GetOrders();
+                        // GetOrders();
                         break;
 
                     case Status.Completed:
                         _curStatus = Status.Completed;
+                        Log("Completed....");
                         if (OnCompleted != null)
                             OnCompleted();
                         break;
 
                 }
-                Log(Helper.GetEnumDescription<Status>(_curStatus));
+               /// Log(Helper.GetEnumDescription<Status>(_curStatus));
 
             }
             else
@@ -129,13 +136,14 @@ namespace Dax.Scrapping.Appraisal.Core
                                     return result;
                                })();";
 
-   
+
             _brouserComponent.EvaluateScriptAsync(scriptTmplClickOrder).ContinueWith(t =>
             {
                 if (!t.IsFaulted)
-                {   
+                {
                     var resultString = t.Result.Result.ToString();
                     var intResult = Convert.ToInt32(resultString);
+                    Log("Result getting orders from list...." + resultString);
                     if (intResult > 0)
                     {
                         ClickModal();
@@ -144,14 +152,22 @@ namespace Dax.Scrapping.Appraisal.Core
                         {
                             _curStatus = Status.Searching;
                             GoToOrdersPage();
+                            return;
                         }
                     }
-                    else
+
+                    if (OnCompleted != null)
                     {
-                        if (OnCompleted != null)
-                        {
-                            OnCompleted();
-                        }
+                        OnCompleted();
+                    }
+
+                }
+                else
+                {
+                    Log("error  invoking javascript..." + t.Result.Message);
+                    if (OnCompleted != null)
+                    {
+                        OnCompleted();
                     }
                 }
             });
@@ -159,20 +175,28 @@ namespace Dax.Scrapping.Appraisal.Core
 
         private void ClickModal()
         {
+            Log("clicking modal.....");
             //ensure modal is shown
             Thread.Sleep(2000);
 
             var scriptTmplAcceptOrder = @"(function() {
-                                           var dialogAcceptButtons = document.getElementsByTagName('btnAccept');
+                                           var dialogAcceptButtons = document.getElementsByName('btnAccept');
                                            if(dialogAcceptButtons && dialogAcceptButtons.length > 0)
                                             {
                                                 for(i = 0, i < dialogAcceptButtons.length; i++)
                                                 { 
-                                                     var attrFlag = dialogAcceptButtons[i].getAttribute('data-order-detail-id');
-                                                     if(attrFlag)
-                                                     {
-                                                           dialogAcceptButtons[i].click(); 
-                                                     }
+                                                    try
+                                                    { 
+                                                         var attrFlag = dialogAcceptButtons[i].getAttribute('data-order-detail-id');
+                                                         if(attrFlag)
+                                                         {
+                                                               dialogAcceptButtons[i].click(); 
+                                                         }
+                                                    }
+                                                    catch(err)
+                                                    {
+
+                                                    }
                                                 }
                                             }
 
@@ -180,6 +204,7 @@ namespace Dax.Scrapping.Appraisal.Core
 
             _brouserComponent.ExecuteScriptAsync(scriptTmplAcceptOrder);
             //ensure order is accepted
+            Log("Modal Clicked.....");
             Thread.Sleep(2000);
         }
 
@@ -216,18 +241,18 @@ namespace Dax.Scrapping.Appraisal.Core
                 {
                     var curContactString = t.Result.Result.ToString();
                     var curContactObject = JsonConvert.DeserializeObject<Order>(curContactString);
-              
+
                 }
             });
         }
 
         private void GoToOrdersPage()
         {
-       
+
             _brouserComponent.Load(_newOrdersUrl);
         }
 
-      
+
 
         private void SaveData()
         {
